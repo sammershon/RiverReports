@@ -1,8 +1,66 @@
 body {
+  background-color: #00334E;
   padding: 50px;
-  font: 14px "Lucida Grande", Helvetica, Arial, sans-serif;
 }
+h1 {
+  font-size: 75px;
+  font-family: 'Permanent Marker', cursive;  text-align: center;
+}
+h3 {
+  color: #BCBCBC;
+  margin-bottom: 30px;
+}
+.title {
+  color: #BCBCBC;
+  text-align: center;
+}
+.backing {
+  background-color: #145374;
+  width: 100%;
+  margin: 0 auto;
+  padding-bottom: 1px;
 
-a {
-  color: #00B7FF;
+}
+.glyphicon {
+  font-size: 20px;
+  padding: 15px;
+}
+.navtext {
+  color: #BCBCBC;
+}
+.navbar {
+  background-color: #474747;
+  color: #00334E;
+}
+.description {
+  color: #BCBCBC;
+  font-size: 20px;
+  text-align: center;
+  margin: 0 auto;
+  margin-top: 35px;
+  margin-bottom: 35px;
+  width: 640px;
+}
+.buttons {
+  text-align: center;
+  margin: 10px;
+}
+.btn{
+  background-color: #145374;
+  color: #BCBCBC;
+  font-size: 28px;
+  margin: 25px;
+  padding: 10px 25px 10px 25px;
+  display: inline;
+  outline: 0;
+}
+.cover {
+  height: 190px;
+  width: auto;
+  margin: 4px;
+  margin-top: 40px;
+}
+.footer {
+  margin-top: 100px;
+  color: #7894A3;
 }
