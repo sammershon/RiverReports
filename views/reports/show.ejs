@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body class="container-fluid">
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <main>
+    <div>
+      <h3 class="sub"><%= report.title %>:   <%= report.reach %></h3>
+      <p><b>Report created: </b><%= report.getCreatedAt() %></p>
+      <p><b>Updated: </b><%= report.getUpdatedAt() %></p>
+      <br />
+      <div class="reportbody">
+      <p><b>River: </b><%= report.title %></p>
+      <p><b>Reach: </b><%= report.reach %></p>
+      <!--<p><b>ID: </b><%= report._id %></p>-->
+      <p><b>Level: </b><%= report.level %>  <%= report.units %></p>
+      <p><b>Weather: </b><%= report.weather %></p>
+      <p><b>Beta: </b><%= report.beta %></p>
+      </div>
+
+    </div>
+    <br />
+    <a href="/reports/<%= report._id %>/edit" class="btn btn-danger btn-sm">Edit</a>
+    <br /><br />
+    <a href="/reports" class="btn btn-primary btn-sm">Back</a>
+
+  </main>
+
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
+</body>
+</html>

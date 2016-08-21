@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Report = require('../models/report');
+var Report = require('../models/story');
 
 function makeError(res, message, status) {
   res.statusCode = status;
@@ -11,10 +11,10 @@ function makeError(res, message, status) {
 
 // INDEX
 router.get('/', function(req, res, next) {
-  // get all the reports and render the index view
+  // get all the stories and render the index view
   Report.find({})
-  .then(function(reports) {
-    res.render('reports/index', { reports: reports } );
+  .then(function(stories) {
+    res.render('stories/index', { stories: stories } );
   }, function(err) {
     return next(err);
   });
@@ -22,34 +22,29 @@ router.get('/', function(req, res, next) {
 
 // NEW
 router.get('/new', function(req, res, next) {
-  var report = {
+  var story = {
     title: '',
-    reach: '',
+    author: '',
+    river: '',
     date: '',
-    level: '',
-    units: '',
-    weather: '',
-    hazard: false,
-    beta: ''
+    friends: '',
+    story: ''
   };
-  res.render('reports/new', { report: report } );
+  res.render('stories/new', { story: story } );
 });
 
 // CREATE
 router.post('/', function(req, res, next) {
-  var report = new Report({
+  var story = new Report({
     title: req.body.title,
-    reach: req.body.reach,
+    river: req.body.river,
     date: req.body.date,
-    level: req.body.level,
-    units: req.body.units,
-    weather: req.body.weather,
-    hazard: req.body.hazard ? true : false,
-    beta: req.body.beta
+    friends: req.body.friends,
+    story: req.body.story
   });
-  report.save()
+  story.save()
   .then(function(saved) {
-    res.redirect('/reports');
+    res.redirect('/stories');
   }, function(err) {
     return next(err);
   });
@@ -58,9 +53,9 @@ router.post('/', function(req, res, next) {
 // SHOW
 router.get('/:id', function(req, res, next) {
   Report.findById(req.params.id)
-  .then(function(report) {
-    if (!report) return next(makeError(res, 'Document not found', 404));
-    res.render('reports/show', { report: report });
+  .then(function(story) {
+    if (!story) return next(makeError(res, 'Document not found', 404));
+    res.render('stories/show', { story: story });
   }, function(err) {
     return next(err);
   });
@@ -69,9 +64,9 @@ router.get('/:id', function(req, res, next) {
 // EDIT
 router.get('/:id/edit', function(req, res, next) {
   Report.findById(req.params.id)
-  .then(function(report) {
-    if (!report) return next(makeError(res, 'Document not found', 404));
-    res.render('reports/edit', { report: report });
+  .then(function(story) {
+    if (!story) return next(makeError(res, 'Document not found', 404));
+    res.render('stories/edit', { story: story });
   }, function(err) {
     return next(err);
   });
@@ -80,14 +75,13 @@ router.get('/:id/edit', function(req, res, next) {
 // UPDATE
 router.put('/:id', function(req, res, next) {
   Report.findById(req.params.id)
-  .then(function(report) {
-    if (!report) return next(makeError(res, 'Document not found', 404));
-    report.title = req.body.title;
-    report.completed = req.body.completed ? true : false;
-    return report.save();
+  .then(function(story) {
+    if (!story) return next(makeError(res, 'Document not found', 404));
+    story.title = req.body.title;
+    return story.save();
   })
   .then(function(saved) {
-    res.redirect('/reports');
+    res.redirect('/stories');
   }, function(err) {
     return next(err);
   });
@@ -97,7 +91,7 @@ router.put('/:id', function(req, res, next) {
 router.delete('/:id', function(req, res, next) {
   Report.findByIdAndRemove(req.params.id)
   .then(function() {
-    res.redirect('/reports');
+    res.redirect('/stories');
   }, function(err) {
     return next(err);
   });

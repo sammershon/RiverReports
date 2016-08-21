@@ -1,23 +1,28 @@
 body {
   background-color: #00334E;
-  padding: 50px;
+  margin-top: 65px;
 }
-h1 {
-  font-size: 75px;
-  font-family: 'Permanent Marker', cursive;  text-align: center;
-}
-h3 {
+p {
   color: #BCBCBC;
-  margin-bottom: 30px;
+}
+a {
+  color: #145374;
 }
 .title {
   color: #BCBCBC;
   text-align: center;
 }
+.maintitle {
+  font-size: 75px;
+  font-family: 'Permanent Marker', cursive;  text-align: center;
+}
+.sub {
+  color: #BCBCBC;
+  margin-bottom: 30px;
+}
 .backing {
   background-color: #145374;
-  width: 100%;
-  margin: 0 auto;
+  width: 100vw;
   padding-bottom: 1px;
 
 }
@@ -45,8 +50,24 @@ h3 {
   text-align: center;
   margin: 10px;
 }
-.btn{
-  background-color: #145374;
+.form-group {
+  color: #BCBCBC;
+}
+.form-control {
+  width: 400px;
+}
+.formcontainer{
+  display: flex;
+  justify-content: center;
+}
+.formsubmit {
+  margin-left: 150px;
+}
+.beta {
+  height: 100px;
+}
+.mp{
+  background-color: #474747;
   color: #BCBCBC;
   font-size: 28px;
   margin: 25px;
@@ -54,13 +75,28 @@ h3 {
   display: inline;
   outline: 0;
 }
+.covers {
+  display: flex;
+  justify-content: center;
+}
 .cover {
   height: 190px;
   width: auto;
   margin: 4px;
   margin-top: 40px;
 }
-.footer {
-  margin-top: 100px;
+footer {
+  position: absolute;
+  right: 0;
+  bottom: 0;
+  left: 0;
+  padding: 1rem;
+  text-align: center;
   color: #7894A3;
+}
+.reporttitle {
+  color: #BCBCBC;
+}
+.well {
+  background-color: #BCBCBC;
 }

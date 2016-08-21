@@ -1,6 +1,9 @@
 var mongoose = require('mongoose');
+mongoose.Promise = require('bluebird');
 //add models here
 var Report = require('./models/report');
+
+mongoose.connect('mongodb://localhost/reports');
 
 function quit() {
   mongoose.disconnect();
@@ -19,8 +22,8 @@ Report.remove({})
 .then(function() {
   console.log('old reports removed');
   console.log('creating some new reports...');
-  var green  = new Todo({ title: 'Green River', reach: 'Narrows', date: 'Nov 4', level: 12, weather: 'overcast', first: false });
-  var big = new Todo({ title: 'Big Creek', reach: 'Upper', date: 'April 16', level: 3.7, weather: 'raining', first: false });
+  var green  = new Report({ title: 'Green River', reach: 'Narrows', date: 'Nov 4', level: 12, weather: 'overcast', hazard: false });
+  var big = new Report({ title: 'Big Creek', reach: 'Upper', date: 'April 16', level: 3.7, weather: 'raining', hazard: false });
   return Report.create([green, big]);
 })
 .then(function(savedReports) {
@@ -32,10 +35,10 @@ Report.remove({})
   allReports.forEach(function(report) {
     console.log(report);
   });
-  return Report.findOne({title: 'green'});
+  return Report.findOne({title: 'Green River'});
 })
 .then(function(green) {
-  green.first = true;
+  green.hazard = true;
   return green.save();
 })
 .then(function(green) {

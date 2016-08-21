@@ -11,20 +11,20 @@
 
   <main>
     <div>
-      <h3 class="reporttitle">Latest River Reports:</h3>
+      <h3 class="sub">River Stories</h3>
       <br />
-      <div class="reports well">
+      <div class="stories well">
       <ul>
-      <% reports.forEach(function(report) { %>
+      <% stories.forEach(function(story) { %>
         <li>
         <h4>
-          <form method="POST" action="/reports/<%= report._id %>?_method=DELETE">
-            <a href="/reports/<%= report._id %>">
-              <%= report.title + ' - ' + report.reach %>
+          <form method="POST" action="/stories/<%= story._id %>?_method=DELETE">
+            <a href="/stories/<%= story._id %>">
+              <%= story.title + '       by: ' + story.author %>
             </a>
-            <%= report.date %>
+            <%= story.date %>
             <br />
-            <a href="/reports/<%= report._id %>/edit" class="btn btn-danger btn-xs">Edit</a>
+            <a href="/stories/<%= story._id %>/edit" class="btn btn-danger btn-xs">Edit</a>
             <button type="submit" class="btn btn-xs btn-danger">Delete</button>
           </form>
         </h4>
@@ -35,7 +35,7 @@
     </div>
     </div>
     <br />
-    <a href="/reports/new" class="btn btn-primary">New</a>
+    <a href="/stories/new" class="btn btn-primary">New</a>
   </main>
 
   <footer>
