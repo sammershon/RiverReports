@@ -9,10 +9,11 @@
     <% include ../partials/header %>
   </header>
 
-  <main>
+  <main class="new">
     <h3 class="sub">Share your river story</h3>
     <form class="report-form" action="/stories" method="post">
       <% include _storyform %>
+      <br />
       <a href="/reports" class="btn btn-primary">Back</a>
       <button type="submit" class="btn btn-success">Save</button>
     </form>

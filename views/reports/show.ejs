@@ -9,13 +9,12 @@
     <% include ../partials/header %>
   </header>
 
-  <main>
+  <main class="reportindex">
     <div>
       <h3 class="sub"><%= report.title %>:   <%= report.reach %></h3>
+      <div class="reportbody well">
       <p><b>Report created: </b><%= report.getCreatedAt() %></p>
-      <p><b>Updated: </b><%= report.getUpdatedAt() %></p>
-      <br />
-      <div class="reportbody">
+      <hr />
       <p><b>River: </b><%= report.title %></p>
       <p><b>Reach: </b><%= report.reach %></p>
       <!--<p><b>ID: </b><%= report._id %></p>-->

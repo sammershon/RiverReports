@@ -1,13 +1,22 @@
 var mongoose = require('mongoose');
 var bcrypt   = require('bcrypt-nodejs');
 var Report = require('./report');
+var Story = require('./story');
 
 var UserSchema = new mongoose.Schema({
   local : {
     email    : String,
     password : String
   },
-  reports : [Report.schema]
+  name : {
+    first : String,
+    last : String
+  },
+  hometown: String,
+  favoriteRiver : String,
+  friends : Array,
+  reports : [Report.schema],
+  stories: [Story.schema]
 });
 
 UserSchema.methods.encrypt = function(password) {

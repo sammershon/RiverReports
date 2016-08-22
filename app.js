@@ -9,12 +9,9 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var session = require('express-session');
 var flash = require('connect-flash');
-//var flash        = require('req-flash');
-mongoose.Promise = require('bluebird');
-
 
 var routes = require('./routes/index');
-var users = require('./routes/users');
+var usersRouter = require('./routes/users');
 var storiesRouter = require('./routes/stories');
 var reportsRouter = require('./routes/reports');
 var mediaRouter = require('./routes/media');
@@ -26,8 +23,6 @@ mongoose.Promise = require('bluebird');
 
 //connect to database currently called "reports"
 mongoose.connect('mongodb://localhost/reports');
-//mongoose.connect('mongodb://localhost/stories');
-//mongoose.connect('mongodb://localhost/users');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -51,18 +46,19 @@ app.use(flash());
 
 require('./config/passport/passport')(passport);
 
+app.use(function (req, res, next) {
+  global.currentUser = req.user;
+  next();
+});
+
 app.use('/', routes);
-app.use('/users', users);
+app.use('/users', usersRouter);
 app.use('/stories', storiesRouter)
 app.use('/reports', reportsRouter);
 app.use('/media', mediaRouter);
 app.use('/news', newsRouter);
 
-// This middleware will allow us to use the currentUser in our views and routes.
-app.use(function (req, res, next) {
-  global.currentUser = req.user;
-  next();
-});
+
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -70,6 +66,7 @@ app.use(function(req, res, next) {
   err.status = 404;
   next(err);
 });
+
 
 // error handlers
 

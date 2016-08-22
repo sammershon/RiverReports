@@ -39,6 +39,12 @@ router.post('/login', function(req, res, next) {
   return loginProperty(req, res, next);
 });
 
+// GET /logout
+router.get('/logout', function(req, res, next) {
+  req.logout();
+  res.redirect('/');
+});
+
 //route to user's homepage will look something like this
 /*
 app.get('/profile', isLoggedIn, function(req, res) {

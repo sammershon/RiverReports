@@ -2,9 +2,7 @@ body {
   background-color: #00334E;
   margin-top: 65px;
 }
-p {
-  color: #BCBCBC;
-}
+
 .title {
   color: #BCBCBC;
   text-align: center;
@@ -15,13 +13,12 @@ p {
 }
 .sub {
   color: #BCBCBC;
-  margin-bottom: 30px;
+  margin-bottom: 45px;
 }
 .backing {
   background-color: #145374;
   width: 100vw;
   padding-bottom: 1px;
-
 }
 .glyphicon {
   font-size: 20px;
@@ -56,14 +53,14 @@ p {
   color: #BCBCBC;
 }
 .form-control {
-  width: 400px;
+  width: 500px;
 }
 .formcontainer{
   display: flex;
   justify-content: center;
 }
 .formsubmit {
-  margin-left: 150px;
+  margin-left: 210px;
 }
 .beta {
   height: 100px;
@@ -88,23 +85,48 @@ p {
   margin-top: 40px;
 }
 footer {
-  position:relative;
+  position: relative;;
   right: 0;
   bottom: 0;
   left: 0;
   padding: 1rem;
+  margin-top: 75px;
   text-align: center;
   color: #7894A3;
 }
 .reporttitle {
   color: #BCBCBC;
+  margin-left: 85px;
+  font-size: 40px;
+}
+.reportbody {
+  width: 500px;
+  margin: 0 auto;
+}
+.reports {
+  width: 550px;
+}
+.storytitle {
+  color: #BCBCBC;
+  margin-left: 130px;
+  font-size: 40px;
 }
 .well {
   background-color: #BCBCBC;
+  color: #145374;
 }
 .new {
   margin-bottom: 50px;
+  margin-left: 450px;
 }
 .tologin {
   text-align: center;
+  color: #BCBCBC;
+}
+.reportindex {
+  width: 500px;
+  margin: 0 auto;
+}
+.newbutton {
+  margin-left: 175px;
 }

@@ -37,6 +37,7 @@ router.get('/new', function(req, res, next) {
 router.post('/', function(req, res, next) {
   var story = new Report({
     title: req.body.title,
+    author: req.body.author,
     river: req.body.river,
     date: req.body.date,
     friends: req.body.friends,
@@ -78,6 +79,11 @@ router.put('/:id', function(req, res, next) {
   .then(function(story) {
     if (!story) return next(makeError(res, 'Document not found', 404));
     story.title = req.body.title;
+    story.author = req.body.author,
+    story.river = req.body.river,
+    story.date = req.body.date,
+    story.friends = req.body.friends,
+    story.story = req.body.story
     return story.save();
   })
   .then(function(saved) {

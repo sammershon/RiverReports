@@ -5,7 +5,8 @@ var strategy = new LocalStrategy({
     usernameField : 'email',                 // default is 'username'
     passwordField : 'password',
     passReqToCallback : true
-  }, function(req, email, password, callback) {
+  },
+  function(req, email, password, callback) {
     // Search for a user with this email
     User.findOne({ 'local.email' : email }, function(err, user) {
       if (err) return callback(err);

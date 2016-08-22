@@ -9,9 +9,9 @@
     <% include ../partials/header %>
   </header>
 
-  <main>
+  <main class="reportindex">
     <div>
-      <h3 class="reporttitle">Latest River Reports:</h3>
+      <h3 class="reporttitle">Latest River Reports</h3>
       <br />
       <div class="reports well">
       <ul>
@@ -22,9 +22,10 @@
             <a href="/reports/<%= report._id %>">
               <%= report.title + ' - ' + report.reach %>
             </a>
-            <%= report.date %>
             <br />
-            <a href="/reports/<%= report._id %>/edit" class="btn btn-danger btn-xs">Edit</a>
+            <%= report.date %>
+            <br /><br />
+            <a href="/reports/<%= report._id %>/edit" class="btn btn-warning btn-xs">Edit</a>
             <button type="submit" class="btn btn-xs btn-danger">Delete</button>
           </form>
         </h4>
@@ -35,7 +36,7 @@
     </div>
     </div>
     <br />
-    <a href="/reports/new" class="btn btn-primary">New</a>
+    <a href="/reports/new" class="btn btn-primary newbutton">Create a new Report</a>
   </main>
 
   <footer>

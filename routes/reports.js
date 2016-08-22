@@ -83,7 +83,13 @@ router.put('/:id', function(req, res, next) {
   .then(function(report) {
     if (!report) return next(makeError(res, 'Document not found', 404));
     report.title = req.body.title;
-    report.completed = req.body.completed ? true : false;
+    report.reach = req.body.reach,
+    report.date = req.body.date,
+    report.level = req.body.level,
+    report.units =req.body.units,
+    report.weather = req.body.weather,
+    report.hazard = req.body.hazard ? true : false,
+    report.beta =req.body.beta
     return report.save();
   })
   .then(function(saved) {

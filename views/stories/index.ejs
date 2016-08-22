@@ -9,10 +9,9 @@
     <% include ../partials/header %>
   </header>
 
-  <main>
+  <main class="reportindex">
     <div>
-      <h3 class="sub">River Stories</h3>
-      <br />
+      <h3 class="sub storytitle">River Stories</h3>
       <div class="stories well">
       <ul>
       <% stories.forEach(function(story) { %>
@@ -22,9 +21,10 @@
             <a href="/stories/<%= story._id %>">
               <%= story.title + '       by: ' + story.author %>
             </a>
-            <%= story.date %>
             <br />
-            <a href="/stories/<%= story._id %>/edit" class="btn btn-danger btn-xs">Edit</a>
+            <%= story.date %>
+            <br /><br />
+            <a href="/stories/<%= story._id %>/edit" class="btn btn-warning btn-xs">Edit</a>
             <button type="submit" class="btn btn-xs btn-danger">Delete</button>
           </form>
         </h4>
@@ -35,7 +35,7 @@
     </div>
     </div>
     <br />
-    <a href="/stories/new" class="btn btn-primary">New</a>
+    <a href="/stories/new" class="btn btn-primary newbutton">Write a New Story</a>
   </main>
 
   <footer>
