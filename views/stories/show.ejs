@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body class="container-fluid">
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <main>
+    <div>
+      <h3 class="sub"><%= story.title %>:   <%= story.author %></h3>
+      <br />
+      <div class="reportbody">
+      <p><b>River: </b><%= story.title %></p>
+      <p><b>Author: </b><%= story.author %></p>
+      <!--<p><b>ID: </b><%= story._id %></p>-->
+      <p><b>River: </b><%= story.river %></p>
+      <p><b>Friends: </b><%= story.friends %></p>
+      <p><b>Story: </b><%= story.story %></p>
+      </div>
+
+    </div>
+    <br />
+    <a href="/stories/<%= story._id %>/edit" class="btn btn-danger btn-sm">Edit</a>
+    <a href="/stories" class="btn btn-primary btn-sm">Back</a>
+
+  </main>
+
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
+</body>
+</html>

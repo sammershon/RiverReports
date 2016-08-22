@@ -9,7 +9,7 @@ var mongoose = require('mongoose');
 var passport = require('passport');
 var session = require('express-session');
 var flash = require('connect-flash');
-var Instafeed = require('instafeed');
+//var flash        = require('req-flash');
 mongoose.Promise = require('bluebird');
 
 
@@ -26,6 +26,8 @@ mongoose.Promise = require('bluebird');
 
 //connect to database currently called "reports"
 mongoose.connect('mongodb://localhost/reports');
+//mongoose.connect('mongodb://localhost/stories');
+//mongoose.connect('mongodb://localhost/users');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));

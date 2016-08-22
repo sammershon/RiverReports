@@ -5,9 +5,9 @@ var ReportSchema = new mongoose.Schema({
   reach:         { type: String,  required: false },
   date:          { type: String,  required: false },
   level:         { type: Number,  required: false },
-  units:         { type: String,  required: true  },
+  units:         { type: String,  required: false  },
   weather:       { type: String,  required: false },
-  hazard:        { type: Boolean, required: true  },
+  hazard:        { type: Boolean, required: false  },
   beta:          { type: String,  required: false }
 },
 { timestamps: true }  // createdAt, updatedAt

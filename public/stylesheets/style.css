@@ -5,9 +5,6 @@ body {
 p {
   color: #BCBCBC;
 }
-a {
-  color: #145374;
-}
 .title {
   color: #BCBCBC;
   text-align: center;
@@ -30,12 +27,17 @@ a {
   font-size: 20px;
   padding: 15px;
 }
-.navtext {
-  color: #BCBCBC;
-}
 .navbar {
   background-color: #474747;
-  color: #00334E;
+  color: #BCBCBC;
+}
+.navlogin {
+  font-size: 20px;
+  margin-right: 20px;
+}
+.navitem {
+  font-size: 15px;
+  font-weight: bold;
 }
 .description {
   color: #BCBCBC;
@@ -86,7 +88,7 @@ a {
   margin-top: 40px;
 }
 footer {
-  position: absolute;
+  position:relative;
   right: 0;
   bottom: 0;
   left: 0;
@@ -99,4 +101,10 @@ footer {
 }
 .well {
   background-color: #BCBCBC;
+}
+.new {
+  margin-bottom: 50px;
+}
+.tologin {
+  text-align: center;
 }
