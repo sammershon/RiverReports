@@ -35,7 +35,11 @@
     </div>
     </div>
     <br />
-    <a href="/stories/new" class="btn btn-primary newbutton">Write a New Story</a>
+    <% if (currentUser) { %>
+      <a href="/userstories/new" class="btn btn-primary newbutton">Write a New Story</a>
+    <% } else { %>
+      <a href="/login" class="btn btn-primary newbutton">Log in to tell your story!</a>
+    <% } %>
   </main>
 
   <footer>

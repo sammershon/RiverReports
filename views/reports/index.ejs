@@ -36,7 +36,11 @@
     </div>
     </div>
     <br />
-    <a href="/userreports/new" class="btn btn-primary newbutton">Create a new Report</a>
+      <% if (currentUser) { %>
+        <a href="/userreports/new" class="btn btn-primary newbutton">Create a new Report</a>
+      <% } else { %>
+        <a href="/login" class="btn btn-primary newbutton">Log in to create a Report!</a>
+      <% } %>
   </main>
 
   <footer>
