@@ -16,6 +16,7 @@ var storiesRouter = require('./routes/stories');
 var reportsRouter = require('./routes/reports');
 var mediaRouter = require('./routes/media');
 var newsRouter = require('./routes/news');
+var profileRouter = require('./routes/profile');
 
 var app = express();
 
@@ -57,6 +58,7 @@ app.use('/stories', storiesRouter)
 app.use('/reports', reportsRouter);
 app.use('/media', mediaRouter);
 app.use('/news', newsRouter);
+app.use('/profile', profileRouter)
 
 
 
