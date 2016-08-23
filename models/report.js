@@ -8,7 +8,8 @@ var ReportSchema = new mongoose.Schema({
   units:         { type: String,  required: false  },
   weather:       { type: String,  required: false },
   hazard:        { type: Boolean, required: false  },
-  beta:          { type: String,  required: false }
+  beta:          { type: String,  required: false },
+  public:        { type: Boolean, required: false }
 },
 { timestamps: true }  // createdAt, updatedAt
 );

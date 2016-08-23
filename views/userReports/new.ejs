@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body class="container-fluid">
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <main class="new">
+    <h3 class="sub">New Report</h3>
+    <form class="report-form" action="/userreports" method="post">
+      <% include _form %>
+      <br />
+      <a href="/userreports" class="btn btn-primary">Back</a>
+      <button type="submit" class="btn btn-success">Save</button>
+    </form>
+  </main>
+
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
+</body>
+</html>

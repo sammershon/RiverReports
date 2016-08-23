@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body class="container-fluid">
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <main class="reportindex">
+    <div>
+      <h3 class="sub"><%= report.title %>:   <%= report.reach %></h3>
+      <div class="reportbody well">
+      <p><b>Report created: </b><%= report.getCreatedAt() %></p>
+      <hr />
+      <p><b>River: </b><%= report.title %></p>
+      <p><b>Reach: </b><%= report.reach %></p>
+      <!--<p><b>ID: </b><%= report._id %></p>-->
+      <p><b>Level: </b><%= report.level %>  <%= report.units %></p>
+      <p><b>Weather: </b><%= report.weather %></p>
+      <p><b>Beta: </b><%= report.beta %></p>
+      </div>
+
+    </div>
+    <br />
+    <a href="#" class="btn btn-success btn-sm">Share this Report</a>
+    <a href="/userreports/<%= report._id %>/edit" class="btn btn-warning btn-sm">Edit</a>
+    <a href="/userreports" class="btn btn-primary btn-sm">Back</a>
+
+  </main>
+
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
+</body>
+</html>

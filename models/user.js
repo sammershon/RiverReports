@@ -14,7 +14,6 @@ var UserSchema = new mongoose.Schema({
   },
   hometown: String,
   favoriteRiver : String,
-  friends : Array,
   reports : [Report.schema],
   stories: [Story.schema]
 });

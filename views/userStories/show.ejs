@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body class="container-fluid">
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <main class="reportindex">
+    <div>
+      <h3 class="sub"><%= story.title %> &nbsp by: <%= story.author %></h3>
+
+      <div class="reportbody well">
+      <p><b>Title: </b><%= story.title %></p>
+      <p><b>Author: </b><%= story.author %></p>
+      <!--<p><b>ID: </b><%= story._id %></p>-->
+      <p><b>River: </b><%= story.river %></p>
+      <p><b>Friends: </b><%= story.friends %></p>
+      </div>
+      <br />
+      <div class="story well">
+        <p><b>Story: </b><%= story.story %></p>
+      </div>
+
+
+
+    </div>
+    <br />
+    <a href="#" class="btn btn-success btn-sm">Share this Story</a>
+    <a href="/userstories/<%= story._id %>/edit" class="btn btn-warning btn-sm">Edit</a>
+    <a href="/userstories" class="btn btn-primary btn-sm">Back</a>
+
+  </main>
+
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
+</body>
+</html>

@@ -1,6 +1,6 @@
 var express = require('express');
 var router = express.Router();
-var Report = require('../models/story');
+var Story = require('../models/story');
 
 function makeError(res, message, status) {
   res.statusCode = status;
@@ -11,12 +11,11 @@ function makeError(res, message, status) {
 
 // INDEX
 router.get('/', function(req, res, next) {
-  // get all the stories and render the index view
-  Report.find({})
+  var storyFilter = {"public": true};
+
+  Story.find(storyFilter)
   .then(function(stories) {
-    res.render('stories/index', { stories: stories } );
-  }, function(err) {
-    return next(err);
+    res.render('stories/index', { stories: stories });
   });
 });
 
@@ -28,20 +27,22 @@ router.get('/new', function(req, res, next) {
     river: '',
     date: '',
     friends: '',
-    story: ''
+    story: '',
+    public: false
   };
   res.render('stories/new', { story: story } );
 });
 
 // CREATE
 router.post('/', function(req, res, next) {
-  var story = new Report({
+  var story = new Story({
     title: req.body.title,
     author: req.body.author,
     river: req.body.river,
     date: req.body.date,
     friends: req.body.friends,
-    story: req.body.story
+    story: req.body.story,
+    public: req.body.public ? true : false
   });
   story.save()
   .then(function(saved) {
@@ -79,11 +80,12 @@ router.put('/:id', function(req, res, next) {
   .then(function(story) {
     if (!story) return next(makeError(res, 'Document not found', 404));
     story.title = req.body.title;
-    story.author = req.body.author,
-    story.river = req.body.river,
-    story.date = req.body.date,
-    story.friends = req.body.friends,
-    story.story = req.body.story
+    story.author = req.body.author;
+    story.river = req.body.river;
+    story.date = req.body.date;
+    story.friends = req.body.friends;
+    story.story = req.body.story;
+    story.public = req.body.public ? true : false;
     return story.save();
   })
   .then(function(saved) {

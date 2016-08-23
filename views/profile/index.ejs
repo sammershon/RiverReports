@@ -11,27 +11,19 @@
 
   <main class="reportindex">
     <div>
-      <h3 class="sub">Profile: <!--<%= currentUser.name.first %> <%= currentUser.name.last %>--></h3>
+      <h3 class="sub">Your Profile</h3>
 
       <div class="reportbody well">
-        <!--<p><b>ID: </b><%= story._id %></p>
-        <p><b>Email: </b><%= currentUser.local.email %></p>
+        <p><b>First name: </b><%= currentUser.name.first %></p>
+        <p><b>Last name: </b><%= currentUser.name.last %></p>
         <p><b>Location: </b><%= currentUser.hometown %></p>
         <p><b>Favorite River: </b><%= currentUser.favoriteRiver %></p>
-        <p><b>Friends: </b><%= currentUser.friends %></p>
       </div>
-      <br />-->
-      <div class="story well">
-        <p><b>Reports: </b><%= currentUser.reports %></p>
-        <p><b>Stories: </b><%= currentUser.stories %></p>
-      </div>
-
-
-
+      <br />
     </div>
     <br />
-    <a href="/stories/<%= story._id %>/edit" class="btn btn-danger btn-sm">Edit</a>
-    <a href="/stories" class="btn btn-primary btn-sm">Back</a>
+    <a href="profile/edit" class="btn btn-danger btn-sm">Edit</a>
+    <a href="/" class="btn btn-primary btn-sm">Home</a>
 
   </main>
 

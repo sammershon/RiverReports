@@ -1,5 +1,5 @@
 <div class="form-group">
-  <label for="title">Title</label>
+  <label for="title">River</label>
   <input type="text"
          class="form-control"
          name="title"
@@ -37,6 +37,7 @@
   <option value="In">In</option>
   <option value="CFS">CFS</option>
   <option value="CMS">CMS</option>
+  <option value="">n/a</option>
   </select>
 </div>
 
@@ -63,7 +64,6 @@
          name="hazard"
          <%= report.hazard ? 'checked' : '' %> >
 </div>
-
 
 <div class="form-group">
   <label for="public">Display this report publicly?</label>

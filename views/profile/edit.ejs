@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body class="container-fluid">
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <main class="new">
+    <h3 class="sub">Edit your profile</h3>
+    <form class="profile-form" action="/profile/?_method=PUT" method="post">
+      <% include _profileform %>
+      <br />
+      <button type="submit" class="btn btn-success">Save</button>
+    </form>
+  </main>
+
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
+</body>
+</html>

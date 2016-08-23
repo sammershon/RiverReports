@@ -11,6 +11,16 @@ function makeError(res, message, status) {
 
 // INDEX
 router.get('/', function(req, res, next) {
+  var reportFilter = {"public": true};
+
+  Report.find(reportFilter)
+  .then(function(reports) {
+    res.render('reports/index', { reports: reports });
+  });
+});
+
+/*/ INDEX
+router.get('/', function(req, res, next) {
   // get all the reports and render the index view
   Report.find({})
   .then(function(reports) {
@@ -18,7 +28,7 @@ router.get('/', function(req, res, next) {
   }, function(err) {
     return next(err);
   });
-});
+});*/
 
 // NEW
 router.get('/new', function(req, res, next) {
@@ -30,6 +40,7 @@ router.get('/new', function(req, res, next) {
     units: '',
     weather: '',
     hazard: false,
+    public: false,
     beta: ''
   };
   res.render('reports/new', { report: report } );
@@ -45,6 +56,7 @@ router.post('/', function(req, res, next) {
     units: req.body.units,
     weather: req.body.weather,
     hazard: req.body.hazard ? true : false,
+    public: req.body.public ? true : false,
     beta: req.body.beta
   });
   report.save()
@@ -83,13 +95,14 @@ router.put('/:id', function(req, res, next) {
   .then(function(report) {
     if (!report) return next(makeError(res, 'Document not found', 404));
     report.title = req.body.title;
-    report.reach = req.body.reach,
-    report.date = req.body.date,
-    report.level = req.body.level,
-    report.units =req.body.units,
-    report.weather = req.body.weather,
-    report.hazard = req.body.hazard ? true : false,
-    report.beta =req.body.beta
+    report.reach = req.body.reach;
+    report.date = req.body.date;
+    report.level = req.body.level;
+    report.units =req.body.units;
+    report.weather = req.body.weather;
+    report.hazard = req.body.hazard ? true : false;
+    report.public = req.body.public ? true : false;
+    report.beta =req.body.beta;
     return report.save();
   })
   .then(function(saved) {

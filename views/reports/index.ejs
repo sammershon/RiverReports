@@ -18,15 +18,15 @@
       <% reports.forEach(function(report) { %>
         <li>
         <h4>
-          <form method="POST" action="/reports/<%= report._id %>?_method=DELETE">
+          <!--<form method="POST" action="/reports/<%= report._id %>?_method=DELETE">-->
             <a href="/reports/<%= report._id %>">
               <%= report.title + ' - ' + report.reach %>
             </a>
             <br />
             <%= report.date %>
-            <br /><br />
-            <a href="/reports/<%= report._id %>/edit" class="btn btn-warning btn-xs">Edit</a>
-            <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+            <br />
+            <!--<a href="/reports/<%= report._id %>/edit" class="btn btn-warning btn-xs">Edit</a>
+            <button type="submit" class="btn btn-xs btn-danger">Delete</button>-->
           </form>
         </h4>
         </li>
@@ -36,7 +36,7 @@
     </div>
     </div>
     <br />
-    <a href="/reports/new" class="btn btn-primary newbutton">Create a new Report</a>
+    <a href="/userreports/new" class="btn btn-primary newbutton">Create a new Report</a>
   </main>
 
   <footer>
