@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <% include ../partials/head %>
+</head>
+
+<body class="container-fluid">
+  <header>
+    <% include ../partials/header %>
+  </header>
+
+  <main class="reportindex">
+    <div>
+      <h3 class="sub storytitle">Your River Stories</h3>
+      <div class="stories well">
+      <ul>
+      <% stories.forEach(function(story) { %>
+        <li>
+        <h4>
+          <form method="POST" action="/stories/<%= story._id %>?_method=DELETE">
+            <a href="/stories/<%= story._id %>">
+              <%= story.title %>
+            </a>
+            <br />
+            <%= story.date %>
+            <br /><br />
+            <a href="/stories/<%= story._id %>/edit" class="btn btn-warning btn-xs">Edit</a>
+            <button type="submit" class="btn btn-xs btn-danger">Delete</button>
+          </form>
+        </h4>
+        </li>
+        <br />
+      <% }) %>
+      </ul>
+    </div>
+    </div>
+    <br />
+    <a href="/stories/new" class="btn btn-primary newbutton">Write a New Story</a>
+  </main>
+
+  <footer>
+    <% include ../partials/footer %>
+  </footer>
+</body>
+</html>
