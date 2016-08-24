@@ -6,7 +6,7 @@
     "node": "6.3.0"
   },
   "scripts": {
-    "start": "./bin/www"
+    "start": "nodemon./bin/www"
   },
   "dependencies": {
     "bcrypt-nodejs": "0.0.3",
