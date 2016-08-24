@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Story = require('../models/story');
+var User = require('../models/user')
 
 function makeError(res, message, status) {
   res.statusCode = status;
@@ -12,13 +13,30 @@ function makeError(res, message, status) {
 // INDEX
 router.get('/', function(req, res, next) {
   var storyFilter = {"public": true};
-
   Story.find(storyFilter)
   .then(function(stories) {
     res.render('stories/index', { stories: stories });
   });
 });
-
+/*
+router.get('/', function(req, res, next) {
+  var pubStories = [];
+  User.find({})
+  .then(function(users){
+    users.forEach(function(user){
+      var stories = user.stories;
+      stories.forEach (function(story){
+        if (story.public) {
+          pubStories.push(story);
+        }
+      });
+    });
+  })
+  .then(function(stories){
+    res.render('stories/index', {stories: pubStories});
+  });
+});
+*/
 // NEW
 router.get('/new', function(req, res, next) {
   var story = {

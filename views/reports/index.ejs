@@ -23,14 +23,13 @@
         <h3>
           <!--<form method="POST" action="/reports/<%= report._id %>?_method=DELETE">-->
             <a href="/reports/<%= report._id %>">
-              <%= report.title + ' - ' + report.reach %>
+              <%= report.title %>
             </a>
               <% if (report.hazard) { %> <span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
               <% } else { %> <!--<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>--> <% } %>
+              <br /><h5><%=report.reach %></h5>
 
-            <br />
-            <%= report.date %>
-            <br />
+            <h5><%= report.date %></h5>
             <!--<a href="/reports/<%= report._id %>/edit" class="btn btn-warning btn-xs">Edit</a>
             <button type="submit" class="btn btn-xs btn-danger">Delete</button>-->
           </form>

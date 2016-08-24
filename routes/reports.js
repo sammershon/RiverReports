@@ -11,7 +11,7 @@ function makeError(res, message, status) {
 }
 
 // INDEX
-router.get('/', function(req, res, next) {
+/*router.get('/', function(req, res, next) {
   var pubReports = [];
   User.find({})
   .then(function(users){
@@ -27,9 +27,10 @@ router.get('/', function(req, res, next) {
   .then(function(reports){
     res.render('reports/index', {reports: pubReports});
   });
-});
+});*/
 
-/*/ INDEX
+
+//INDEX
 router.get('/', function(req, res, next) {
   // get all the reports and render the index view
   Report.find({})
@@ -38,7 +39,7 @@ router.get('/', function(req, res, next) {
   }, function(err) {
     return next(err);
   });
-});*/
+});
 
 // NEW
 router.get('/new', function(req, res, next) {
@@ -81,12 +82,20 @@ router.post('/', function(req, res, next) {
 router.get('/:id', function(req, res, next) {
   Report.findById(req.params.id)
   .then(function(report) {
+    console.log(report);
     if (!report) return next(makeError(res, 'Document not found', 404));
     res.render('reports/show', { report: report });
   }, function(err) {
     return next(err);
   });
 });
+/*
+router.get('/:id', authenticate, function(req, res, next) {
+  //mongoose provides us with this id method to set the id to the req
+  var todo = currentUser.todos.id(req.params.id);
+  if (!todo) return next(makeError(res, 'Document not found', 404));
+  res.render('todos/show', { todo: todo, message: req.flash() } );
+});*/
 
 // EDIT
 router.get('/:id/edit', function(req, res, next) {
