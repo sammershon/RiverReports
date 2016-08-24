@@ -25,19 +25,24 @@
 
         <div class="description">
             <p>
-                Welcome to River Reports! Share your whitewater info and experiences with others or keep a personal log of your activities. Reports allow boaters to share the latest river conditions and provide information on lesser known rivers and creeks. The stories section is a place to record tales that might otherwise be left untold outside of the campfire circle!
+                Welcome to River Reports! Share your whitewater info and experiences with others or keep a personal log of your adventures. Reports allow boaters to share the latest river conditions and provide information on lesser known rivers and creeks. The stories section is a place to record tales that might otherwise be left untold outside of the campfire circle!
             </p>
         </div>
     </div>
     </div>
-
+      <% if (!currentUser) { %>
         <div class="buttons">
             <a href="/signup"><button type="button" class="btn btn-primary btn-lg mp" href="signup">Sign up</button></a>
             <a href="/login"><button type="button" class="btn btn-primary btn-lg mp">Log in</button></a>
             <!--code for buttons that gets rid of line, but messes up alignment
             <a href="/signup" class="btn btn-primary btn-lg mp" role="button">Sign up</button></a>
             <a href="/login" class="btn btn-primary btn-lg mp" role="button">Log in</button></a>-->
-        </div>
+        </div> <% } else { %> <div class=buttons>
+          <p class= "welcome">
+            Welcome back <%= currentUser.local.email%>!
+          </p>
+        </div> <% } %>
+
 
     <div class="footer">
         <% include partials/footer %>

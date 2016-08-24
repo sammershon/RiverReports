@@ -1,6 +1,7 @@
 var express = require('express');
 var router = express.Router();
 var Report = require('../models/report');
+var User = require('../models/user');
 
 function makeError(res, message, status) {
   res.statusCode = status;
@@ -11,11 +12,20 @@ function makeError(res, message, status) {
 
 // INDEX
 router.get('/', function(req, res, next) {
-  var reportFilter = {"public": true};
-
-  Report.find(reportFilter)
-  .then(function(reports) {
-    res.render('reports/index', { reports: reports });
+  var pubReports = [];
+  User.find({})
+  .then(function(users){
+    users.forEach(function(user){
+      var reports = user.reports;
+      reports.forEach (function(report){
+        if (report.public) {
+          pubReports.push(report);
+        }
+      });
+    });
+  })
+  .then(function(reports){
+    res.render('reports/index', {reports: pubReports});
   });
 });
 

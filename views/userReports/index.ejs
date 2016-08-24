@@ -12,6 +12,9 @@
   <main class="reportindex">
     <div>
       <h3 class="reporttitle">Your River Reports</h3>
+      <p class= "reporttext">
+        <span class="glyphicon glyphicon-alert" aria-hidden="true"></span> - indicates a newly reported river hazard
+      </p>
       <br />
       <div class="reports well">
       <ul>
@@ -22,6 +25,9 @@
             <a href="/userreports/<%= report._id %>">
               <%= report.title + ' - ' + report.reach %>
             </a>
+            <% if (report.hazard) { %> <span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
+            <% } else { %> <!--<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>--> <% } %>
+
             <br />
             <%= report.date %>
             <br /><br />

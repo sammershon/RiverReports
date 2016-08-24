@@ -136,5 +136,10 @@ footer {
   text-align: center;
 }
 .stories {
-  width: 800px;
+  width: 550px;
+}
+.welcome {
+  color: #BCBCBC;
+  margin: 25px;
+  font-size: 20px;
 }
