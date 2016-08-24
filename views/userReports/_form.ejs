@@ -51,11 +51,13 @@
 
 <div class="form-group">
   <label for="beta">Beta</label>
-  <input type="text"
-         class="form-control beta"
+  <textarea class="form-control beta"
+         cols="10"
+         rows="10"
          name="beta"
-         value="<%= report.beta %>">
+         value="<%= report.beta %>"></textarea>
 </div>
+<br />
 
 <div class="form-group">
   <label for="hazard">Hazard Report- Check this box if report includes a new river hazard.</label>

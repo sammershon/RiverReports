@@ -11,18 +11,20 @@
 
   <main class="reportindex">
     <div>
-      <h3 class="sub storytitle">River Stories</h3>
+      <h1 class="sub storytitle">River Stories</h1>
       <div class="stories well">
       <ul>
       <% stories.forEach(function(story) { %>
         <li>
-        <h4>
+        <h3>
           <form method="POST" action="/stories/<%= story._id %>?_method=DELETE">
             <a href="/stories/<%= story._id %>">
               <%= story.title + '       by: ' + story.author %>
             </a>
-            <br />
-            <%= story.date %>
+        </h3>
+        <h4></h4>
+              <br />
+              <%= story.river %> &nbsp&nbsp&nbsp&nbsp<%= story.date %>
             <br />
             <!--<a href="/stories/<%= story._id %>/edit" class="btn btn-warning btn-xs">Edit</a>
             <button type="submit" class="btn btn-xs btn-danger">Delete</button>-->

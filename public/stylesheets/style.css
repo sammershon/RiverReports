@@ -62,9 +62,10 @@ body {
 .formsubmit {
   margin-left: 210px;
 }
-.beta {
-  height: 100px;
-}
+/*.beta {
+  height: 300px;
+  width: 500px;
+}*/
 .mp{
   background-color: #474747;
   color: #BCBCBC;
@@ -108,8 +109,8 @@ footer {
 }
 .storytitle {
   color: #BCBCBC;
-  margin-left: 130px;
-  font-size: 40px;
+  margin-left: 115px;
+  font-size: 45px;
 }
 .well {
   background-color: #BCBCBC;
@@ -128,5 +129,13 @@ footer {
   margin: 0 auto;
 }
 .newbutton {
-  margin-left: 175px;
+  margin-left: 160px;
+}
+.reporttext {
+  color: #BCBCBC;
+  text-align: center;
+}
+.stories {
+  width: 800px;
+  margin-right: 300px;
 }

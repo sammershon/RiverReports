@@ -13,22 +13,28 @@
     <div>
       <h3 class="reporttitle">Latest River Reports</h3>
       <br />
+      <p class= "reporttext">
+        <span class="glyphicon glyphicon-alert" aria-hidden="true"></span> - indicates a newly reported river hazard
+      </p>
       <div class="reports well">
       <ul>
       <% reports.forEach(function(report) { %>
         <li>
-        <h4>
+        <h3>
           <!--<form method="POST" action="/reports/<%= report._id %>?_method=DELETE">-->
             <a href="/reports/<%= report._id %>">
               <%= report.title + ' - ' + report.reach %>
             </a>
+              <% if (report.hazard) { %> <span class="glyphicon glyphicon-alert" aria-hidden="true"></span>
+              <% } else { %> <!--<span class="glyphicon glyphicon-thumbs-up" aria-hidden="true"></span>--> <% } %>
+
             <br />
             <%= report.date %>
             <br />
             <!--<a href="/reports/<%= report._id %>/edit" class="btn btn-warning btn-xs">Edit</a>
             <button type="submit" class="btn btn-xs btn-danger">Delete</button>-->
           </form>
-        </h4>
+        </h3>
         </li>
         <br />
       <% }) %>

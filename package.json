@@ -1,7 +1,10 @@
 {
   "name": "project2",
-  "version": "0.0.0",
+  "version": "1.0.0",
   "private": true,
+  "engines": {
+    "node": "6.3.0"
+  },
   "scripts": {
     "start": "nodemon ./bin/www"
   },

@@ -54,7 +54,7 @@ router.post('/', function(req, res, next) {
 
 // SHOW
 router.get('/:id', function(req, res, next) {
-  Report.findById(req.params.id)
+  Story.findById(req.params.id)
   .then(function(story) {
     if (!story) return next(makeError(res, 'Document not found', 404));
     res.render('stories/show', { story: story });
