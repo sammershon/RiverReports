@@ -31,15 +31,16 @@ function makeError(res, message, status) {
 
 
 //INDEX
-router.get('/', function(req, res, next) {
-  // get all the reports and render the index view
-  Report.find({})
-  .then(function(reports) {
-    res.render('reports/index', { reports: reports } );
-  }, function(err) {
-    return next(err);
-  });
-});
+ router.get('/', function(req, res, next) {
+   // get all the reports and render the index view
+   Report.find({})
+   .then(function(reports) {
+     res.render('reports/index', { reports: reports } );
+   }, function(err) {
+     return next(err);
+   });
+ });
+
 
 // NEW
 router.get('/new', function(req, res, next) {
@@ -89,13 +90,22 @@ router.get('/:id', function(req, res, next) {
     return next(err);
   });
 });
-/*
-router.get('/:id', authenticate, function(req, res, next) {
-  //mongoose provides us with this id method to set the id to the req
-  var todo = currentUser.todos.id(req.params.id);
-  if (!todo) return next(makeError(res, 'Document not found', 404));
-  res.render('todos/show', { todo: todo, message: req.flash() } );
-});*/
+  /*User.find({})
+  .then(function(users) {
+    var allReports = [];
+    users.forEach(function(user) {
+      allReports = allReports.concat(user.reports);
+    });
+    var report = allReports.filter(function(r) { return r._id.equals(req.params.id); });
+    console.log('found report:', report);
+    if (report) {
+      res.render('reports/show', { report: report });
+    }
+    else {
+      return next(makeError(res, 'Document not found', 404));
+    }
+  });
+*/
 
 // EDIT
 router.get('/:id/edit', function(req, res, next) {
