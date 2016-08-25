@@ -5,6 +5,8 @@ River Reports is a site designed to allow a user to sign into an account and rec
 in a format that can easily be shared with other users or saved as a private memo. There is also a stories 
 section where users can record and share their adventures in a format that relies less on river conditon 
 informtion.
+
+Visit the site here: https://secure-savannah-28094.herokuapp.com/
   
 ##Technologies used
 
