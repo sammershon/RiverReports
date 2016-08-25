@@ -83,7 +83,7 @@ router.get('/:id', function(req, res, next) {
 
 // EDIT
 router.get('/:id/edit', function(req, res, next) {
-  Report.findById(req.params.id)
+  Story.findById(req.params.id)
   .then(function(story) {
     if (!story) return next(makeError(res, 'Document not found', 404));
     res.render('stories/edit', { story: story });
@@ -94,7 +94,7 @@ router.get('/:id/edit', function(req, res, next) {
 
 // UPDATE
 router.put('/:id', function(req, res, next) {
-  Report.findById(req.params.id)
+  Story.findById(req.params.id)
   .then(function(story) {
     if (!story) return next(makeError(res, 'Document not found', 404));
     story.title = req.body.title;
@@ -115,7 +115,7 @@ router.put('/:id', function(req, res, next) {
 
 // DESTROY
 router.delete('/:id', function(req, res, next) {
-  Report.findByIdAndRemove(req.params.id)
+  Story.findByIdAndRemove(req.params.id)
   .then(function() {
     res.redirect('/stories');
   }, function(err) {
